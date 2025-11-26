@@ -1,0 +1,16 @@
+{% extends "users/layout.html" %}           <!-- en "layout.html" tenemos el html común a todas las páginas, y luego cada una extiende de ese layout-->
+
+{% block body %}
+    {% if message %}
+        <h1>{{ message }}</h1>
+    {% else %}
+        <h1>Login</h1>
+    {% endif %}
+
+    <form action="{% url 'users:login' %}" method="post">
+        {% csrf_token %}
+            <input type="text" name="username" placeholder="Username">
+            <input type="password" name="password" placeholder="Password">
+            <input type="submit" value="Login">
+    </form>
+{% endblock %}   

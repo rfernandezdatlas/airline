@@ -1,0 +1,10 @@
+{% extends "users/layout.html" %}           <!-- en "layout.html" tenemos el html común a todas las páginas, y luego cada una extiende de ese layout-->
+
+{% block body %}
+    <h1>Bienvenido, {{ request.user.first_name }}</h1>
+    <ul>
+        <li>Nombre de usuario: {{ request.user.username}} </li>
+        <li>Email: {{ request.user.email}} </li>
+    </ul>
+    <a href="{% url 'users:logout' %}">Log Out</a>
+{% endblock %}   
