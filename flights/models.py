@@ -35,7 +35,7 @@ class Flight(models.Model):
 
     #Lecture_7_Testing_CI_CD
     def is_valid_flight(self):                                          #creamos esta función que validaremos en Lecture_7_Testing_CI_CD haciendo uso de la herramienta de test de Django
-        return self.origin != self.destination or self.duration > 0   #consideramos un vuelo válido aquél que tenga origen distinto del destino y cuya duración sea > 0. Para hacer que falle, simplemente cambiar "and" por "or"
+        return self.origin != self.destination and self.duration > 0   #consideramos un vuelo válido aquél que tenga origen distinto del destino y cuya duración sea > 0. Para hacer que falle, simplemente cambiar "and" por "or"
 
 #luego, despues de python manage.py makemigrations y  python manage.py migrate , empezaré a insertar registros en la tabla Airports creando objetos de tipo Airport
 # nyc = Airport(code = 'NYC', city= "New York") 
