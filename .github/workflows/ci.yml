@@ -2,11 +2,22 @@ name: Testing
 on: push
 
 jobs:
-    test_airline_project: 
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v2
-            - name: Ejeuta los tests de Django
-              run:
-                pip3 install --user django
-                python3 manage.py test
+  test_airline_project:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar dependencias
+        run: |
+          python -m pip install --upgrade pip
+          pip install django
+
+      - name: Ejecuta los tests de Django
+        run: |
+          python manage.py test
